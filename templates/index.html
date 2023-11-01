@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .add-expense-button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none; /* Remove underline */
+            transition: background-color 0.3s ease; /* Add color transition */
+        }
+
+        .add-expense-button:hover {
+            background-color: #ff4444; /* Change color on hover */
+        }
+
+        .expenses-list {
+            margin-top: 20px;
+            width: 60%;
+        }
+
+        .expense {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .expense-details {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+
+        .category {
+            margin-top: 30px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .form-button{
+            color: red;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 15px;
+            position: absolute;
+            height: 30px;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div >
+    <form action="/logout">
+        <input class="form-button" type="submit" value="Logout">
+    </form></div>
+    <h1>Expense Tracker</h1>
+
+    <a href="/expense" class="add-expense-button">Add Expense</a>
+
+
+    <!-- EXPENSES LIST -->
+
+    <div class="expenses-list">
+                {%for data in existing_data%}
+                <br><span>Date - {{data['date']}}</span>
+                <div class="expense">
+                <div class="expense-details">
+                <span>Title - {{data['title']}}</span><br><br>
+                <span>Amount - {{data['amount']}}</span><br><br>
+                <span>Description - {{data['description']}}</span><br><br>
+                <span>payment type - {{data['payment_type']}}</span><br><br>
+            
+                
+                <!-- <h3>Title: Grocery Shopping</h3> -->
+                <!-- <p>Description: Bought groceries for the week.</p> -->
+            
+            <!-- <span>Category: Cash</span> -->
+        </div>
+    </div>
+    {%endfor%}
+        
+        <!-- </div> -->
+
+
+
+        <!-- Add more expenses as needed -->
+
+        <div class="category">Categories</div>
+        <ul>
+            <li>Cash</li>
+            <li>UPI</li>
+            <li>Netbanking</li>
+            <!-- Add more categories as needed -->
+        </ul>
+    </div>
+</body>
+</html>
